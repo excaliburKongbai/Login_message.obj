@@ -291,6 +291,6 @@ class __TwigTemplate_1fc867dba8e158a8bcc128380fcfa028d79446d20146eb073857a2d5e84
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/table_fields_definitions.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\table_fields_definitions.twig");
+        return new Twig_Source("", "columns_definitions/table_fields_definitions.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\table_fields_definitions.twig");
     }
 }

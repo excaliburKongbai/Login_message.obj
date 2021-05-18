@@ -142,6 +142,6 @@ class __TwigTemplate_b53273f8a1ace8d746e2d179c44ebf7e14c102e762c8fd8d209a918d13b
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_default.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_default.twig");
+        return new Twig_Source("", "columns_definitions/column_default.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_default.twig");
     }
 }

@@ -67,6 +67,6 @@ class __TwigTemplate_c98e518a74d54f3cb273c99deaadc4a36715b8969fd977ae739190cc04e
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_type.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_type.twig");
+        return new Twig_Source("", "columns_definitions/column_type.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_type.twig");
     }
 }

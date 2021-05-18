@@ -286,6 +286,6 @@ class __TwigTemplate_c79072724d5d6fa9c1a10230ebcbe8763cbe37e7c26ef75f967fa88e65c
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_definitions_form.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_definitions_form.twig");
+        return new Twig_Source("", "columns_definitions/column_definitions_form.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_definitions_form.twig");
     }
 }

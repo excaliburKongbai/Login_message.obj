@@ -62,6 +62,6 @@ class __TwigTemplate_d690e608f4136ba80d82f46e4841f20ea7c7edc28a6b3cdca72d45c3dac
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_auto_increment.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_auto_increment.twig");
+        return new Twig_Source("", "columns_definitions/column_auto_increment.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_auto_increment.twig");
     }
 }

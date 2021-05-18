@@ -431,6 +431,6 @@ $context["row"], "Field", [], "array"), ($context["central_list"] ?? null))) ? (
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/structure/display_structure.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\table\\structure\\display_structure.twig");
+        return new Twig_Source("", "table/structure/display_structure.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\table\\structure\\display_structure.twig");
     }
 }

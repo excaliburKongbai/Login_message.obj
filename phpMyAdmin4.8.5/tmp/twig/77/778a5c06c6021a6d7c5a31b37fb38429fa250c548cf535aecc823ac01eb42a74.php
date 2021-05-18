@@ -392,6 +392,6 @@ class __TwigTemplate_fee515982f70a2011169c9f008fcd139e82cccbea4ce5d9bd1b91a23797
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/column_attributes.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_attributes.twig");
+        return new Twig_Source("", "columns_definitions/column_attributes.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\column_attributes.twig");
     }
 }

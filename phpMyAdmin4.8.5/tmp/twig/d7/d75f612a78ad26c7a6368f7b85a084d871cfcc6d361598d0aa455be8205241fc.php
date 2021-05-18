@@ -89,6 +89,6 @@ class __TwigTemplate_24fd83dde6f027c837c1abad4cec0dab7aa266a1596585a08439b85fe33
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "columns_definitions/move_column.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\columns_definitions\\move_column.twig");
+        return new Twig_Source("", "columns_definitions/move_column.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\columns_definitions\\move_column.twig");
     }
 }
