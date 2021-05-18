@@ -18,10 +18,10 @@
                         <h3 id="User_State">登录</h3>
                     </li>
                     <li>
-                        <input type="text" class="input_user" name="user_id" placeholder="  请输入你的账户密码">
+                        <input type="text" class="input_user" id="user_id" name="user_id" placeholder="  请输入你的账户密码">
                     </li>
                     <li>
-                        <input type="password" class="input_user" :style="pass_Error" :style="userPass" name="user_pass" placeholder="  密码">
+                        <input type="password" class="input_user" id="user_pass" name="user_pass" placeholder="  密码">
                     </li>
                     <li class="jump_error">
                         <h5 id="Jump_Error" style="color: red; ">用户密码错误</h5>
@@ -43,7 +43,11 @@
 </script>
 <script type='text/javascript' charset='utf-8'>
     //绑定登录事件
-    $("")
+    $("#login").click(function() {
+        $.post("../php/common/Login.php", function(date) {
+            console.log(date);
+        })
+    })
 </script>
 
 </html>
