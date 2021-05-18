@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    outline: none;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+h3 {
+    margin: 0;
+}
+
+
+/*清除浮动塌陷*/
+
+.clearfix_D::before,
+.clearfix_E::after {
+    content: '';
+    display: table;
+    clear: both;
+    /* 左右不允许浮动 */
+}
