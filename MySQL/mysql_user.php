@@ -85,9 +85,12 @@ use \PDO,\PDOException,\PDOStatement;
                 //默认单例
                 if($only){
                     $row = $stmt->fetch($this->fetch_mode);
+                    return $row;
                 }else{
                     $rows = $stmt->fetchAll($this->fetch_mode);
+                    return $rows;
                 }
         }
-    }
+}
+
 ?>

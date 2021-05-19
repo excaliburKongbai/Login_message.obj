@@ -1,5 +1,5 @@
 <?php
-//载入配置
+// 载入配置
 use core\PDO_MySQL;
 require_once '../../config/common.php';
 //链接数据库
@@ -17,7 +17,7 @@ if($logid==''||$pass==''){
     $msg = "用户名或密码不能为空";
 }else{
     //导出数据库的账号密码
-    $sql="SELECT*FROM `user` WHERE user_id='$logid'";
+    $sql="SELECT*FROM `user` WHERE user_id ='$logid'";
     $red = $user->my_query($sql);
     if($red['user_id']==''){
         //判断用户是否存在
@@ -41,6 +41,13 @@ $respose=[
     'pass'=>$pass,
     'msg'=>$msg,
 ];
+// $data = $_POST
+// $msg=$data['name'];
+// $pass=$data['pwd'];
+// $respose[
+//     'msg'=>$msg,
+//     'pass'=>$pass,
+// ]
 echo json_encode($respose);
 
 ?>

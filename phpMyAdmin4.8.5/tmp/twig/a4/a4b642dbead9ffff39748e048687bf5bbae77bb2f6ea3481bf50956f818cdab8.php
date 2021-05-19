@@ -290,6 +290,6 @@ class __TwigTemplate_680807abf978b2f0dac2801a66d14f330479757a38a150daa30759fc817
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/search/input_box.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\table\\search\\input_box.twig");
+        return new Twig_Source("", "table/search/input_box.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\table\\search\\input_box.twig");
     }
 }

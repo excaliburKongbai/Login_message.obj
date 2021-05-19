@@ -102,6 +102,6 @@ class __TwigTemplate_ba198a382ebded016f8c31fb210854e0c1e0a777ed79f1a8400adbfe356
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/insert/continue_insertion_form.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\table\\insert\\continue_insertion_form.twig");
+        return new Twig_Source("", "table/insert/continue_insertion_form.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\table\\insert\\continue_insertion_form.twig");
     }
 }

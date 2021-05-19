@@ -11,8 +11,9 @@
 </head>
 <div id="app">
     <section id="guestbook">
-        <div class="Login_box ">
-            <form action="" method="post" class="Login">
+        <div class="Login_box">
+            <!-- 登录 -->
+            <form action="" method="post" class="Login" style="display: block;">
                 <ul>
                     <li>
                         <h3 id="User_State">登录</h3>
@@ -32,6 +33,27 @@
                     </li>
                 </ul>
             </form>
+            <!-- 注册 -->
+            <!-- <form action="" method="post" class="Signup" style="display: block;">
+                <ul>
+                    <li>
+                        <h3 id="User_State">注册</h3>
+                    </li>
+                    <li>
+                        <input type="text" class="input_user" id="user_id" name="user_id" placeholder="  请输入你的账户密码" value="">
+                    </li>
+                    <li>
+                        <input type="password" class="input_user" id="user_pass" name="user_pass" placeholder="  密码" value="">
+                    </li>
+                    <li class="jump_error">
+                        <h5 id="Jump_Error" style="color: red;"></h5>
+                    </li>
+                    <li class="login_butt_box">
+                        <button type="button" id="login" name="login">登录</button>
+                        <button type="button" id="Registered" name="Registered">注册</button>
+                    </li>
+                </ul>
+            </form> -->
         </div>
     </section>
 </div>
@@ -42,12 +64,6 @@
 <script src="../js/jquery-3.6.0.js" type="text/javascript " charset="utf-8 ">
 </script>
 <script type='text/javascript' charset='utf-8'>
-    // 绑定登录事件
-    // $("#login").click(function() {
-    //     var user_id = $('#user_id').val();
-    //     var user_pass = $('#user_pass').val();
-    //     console.log(user_id, user_pass);
-    // })
     $("#login").click(function() {
         var name = $("#user_id").val();
         var pwd = $("#user_pass").val();
@@ -57,7 +73,7 @@
             type: 'post',
             data: {
                 'name': name,
-                'pwd': pwd
+                'pwd': pwd,
             },
             dataType: 'json',
             success: function(data) {
@@ -66,12 +82,11 @@
                     //跳转页面
                     // location.href = 'index.php';
                 } else {
-                    // alert(data.msg);
                     $('#Jump_Error').text(data.msg);
                 }
             },
             error: function(e) {
-                console.log('请求出错！');
+                console.log('请求出错!');
                 console.log(e.responseText);
             }
         })

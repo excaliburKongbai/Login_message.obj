@@ -62,6 +62,6 @@ class __TwigTemplate_006d9bc7d04fed4cbc1d5d014e0a092875fc0b441ee9e8a4654281a3f1c
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "secondary_tabs.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\secondary_tabs.twig");
+        return new Twig_Source("", "secondary_tabs.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\secondary_tabs.twig");
     }
 }

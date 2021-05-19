@@ -80,6 +80,6 @@ class __TwigTemplate_5af6a2f252f7dda5e2fba1449039b4fe7a1a3acf6edf44de72686f589e2
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "table/search/fields_table.twig", "D:\\phpstudy_pro\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\table\\search\\fields_table.twig");
+        return new Twig_Source("", "table/search/fields_table.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\table\\search\\fields_table.twig");
     }
 }
