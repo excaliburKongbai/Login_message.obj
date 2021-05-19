@@ -41,13 +41,6 @@ $respose=[
     'pass'=>$pass,
     'msg'=>$msg,
 ];
-// $data = $_POST
-// $msg=$data['name'];
-// $pass=$data['pwd'];
-// $respose[
-//     'msg'=>$msg,
-//     'pass'=>$pass,
-// ]
 echo json_encode($respose);
 
 ?>

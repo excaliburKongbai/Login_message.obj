@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/FceBook_index.css" type="text/css">
+    <link rel="stylesheet" href="../css/FceBook_Login.css" type="text/css">
     <link rel="stylesheet" href="../css/common.css" type="text/css">
-    <title>Document</title>
+    <title>登录</title>
 </head>
 <div id="app">
     <section id="guestbook">
@@ -19,7 +19,7 @@
                         <h3 id="User_State">登录</h3>
                     </li>
                     <li>
-                        <input type="text" class="input_user" id="user_id" name="user_id" placeholder="  请输入你的账户密码" value="">
+                        <input type="text" class="input_user bott2" id="user_id" name="user_id" placeholder="  请输入你的账户密码" value="">
                     </li>
                     <li>
                         <input type="password" class="input_user" id="user_pass" name="user_pass" placeholder="  密码" value="">
@@ -34,26 +34,26 @@
                 </ul>
             </form>
             <!-- 注册 -->
-            <!-- <form action="" method="post" class="Signup" style="display: block;">
+            <form action="" method="post" class="Signup" style="display:none; position:relative;">
                 <ul>
                     <li>
                         <h3 id="User_State">注册</h3>
                     </li>
+                    <span id="on_Signup" style="position:absolute; right: 55rem; top: 2rem; cursor: pointer; font-size: 30px ;color: rgb(218, 218, 218);">&lt;</span>
                     <li>
-                        <input type="text" class="input_user" id="user_id" name="user_id" placeholder="  请输入你的账户密码" value="">
+                        <input type="text" class="input_user bott2" id="Signup_id" name="Signup_id" placeholder="  昵称" value="">
                     </li>
                     <li>
-                        <input type="password" class="input_user" id="user_pass" name="user_pass" placeholder="  密码" value="">
+                        <input type="password" class="input_user" id="Signup_pass" name="Signup_pass" placeholder=" 密码(8-16位数)" value="">
                     </li>
                     <li class="jump_error">
-                        <h5 id="Jump_Error" style="color: red;"></h5>
+                        <h5 id="Signup_Error" style="color: red;"></h5>
                     </li>
-                    <li class="login_butt_box">
-                        <button type="button" id="login" name="login">登录</button>
-                        <button type="button" id="Registered" name="Registered">注册</button>
+                    <li class="login_butt_box2">
+                        <button type="button" id="Signup_but" name="Registered">注册</button>
                     </li>
                 </ul>
-            </form> -->
+            </form>
         </div>
     </section>
 </div>
@@ -61,13 +61,14 @@
 <body>
 
 </body>
-<script src="../js/jquery-3.6.0.js" type="text/javascript " charset="utf-8 ">
+<script src="../js/jquery-3.6.0.js " type="text/javascript " charset="utf-8 ">
 </script>
 <script type='text/javascript' charset='utf-8'>
+    //登录
     $("#login").click(function() {
         var name = $("#user_id").val();
         var pwd = $("#user_pass").val();
-        console.log(name, pwd);
+        // console.log(name, pwd);
         $.ajax({
             url: '../php/common/Login.php',
             type: 'post',
@@ -91,6 +92,45 @@
             }
         })
     });
+    // 注册
+    $("#Registered").click(function() {
+            $(".Login").css('display', 'none');
+            $(".Signup").css('display', 'block');
+        })
+        //返回登录
+    $("#on_Signup").click(function() {
+        $(".Login").css('display', 'block');
+        $(".Signup").css('display', 'none');
+    })
+    $("#Signup_but").click(function() {
+        var name = $("#Signup_id").val();
+        var pwd = $("#Signup_pass").val();
+        console.log(name, pwd);
+        $.ajax({
+            url: '../php/common/Signup.php',
+            type: 'post',
+            data: {
+                'name': name,
+                'pwd': pwd,
+            },
+            dataType: 'json',
+            // 成功
+            success: function(data) {
+                if (data.flag == 1) {　　　　　　　　　　　　
+                    alert(data.msg);
+                    //跳转页面
+                    // location.href = 'index.php';
+                } else {
+                    $('#Signup_Error').text(data.msg);
+                }
+            },
+            // 失败
+            error: function(e) {
+                console.log('请求出错!');
+                console.log(e.responseText);
+            }
+        })
+    })
 </script>
 
 </html>

@@ -11,6 +11,10 @@ body {
     min-height: 600px;
 }
 
+button {
+    cursor: pointer;
+}
+
 
 /*****************背景******************/
 
@@ -86,13 +90,16 @@ header .State>h3 {
     font-size: 1.5rem;
 }
 
-#guestbook .Login_box ul li:nth-child(2) {
+#guestbook .Login_box ul li .bott2 {
     margin-bottom: 2rem;
 }
 
 #guestbook .Login_box ul li .input_user:focus {
     border: #02a7f0 2px solid;
 }
+
+
+/* 登录 */
 
 #guestbook .Login_box ul .login_butt_box>button {
     width: 10rem;
@@ -105,7 +112,22 @@ header .State>h3 {
     transition: all 0.5s linear;
 }
 
-#guestbook .Login_box ul .login_butt_box>button:hover {
+
+/* 注册 */
+
+#guestbook .Login_box ul .login_butt_box2>button {
+    width: 20rem;
+    height: 5rem;
+    background-color: rgb(255, 255, 255);
+    border: rgb(167, 167, 167) 1px solid;
+    margin: 1.5rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    transition: all 0.5s linear;
+}
+
+#guestbook .Login_box ul .login_butt_box>button:hover,
+#guestbook .Login_box ul .login_butt_box2>button:hover {
     background-color: #02a7f0;
 }
 

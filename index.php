@@ -6,6 +6,6 @@ require_once './config/common.php';
 date_default_timezone_set('Asia/Shanghai');
 
 //载入网站首页
-require_once PHP_ROOT.'FceBook_index.php';
+require_once PHP_ROOT.'FceBook_Login.php';
 
 ?>

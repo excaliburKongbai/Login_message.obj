@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* 背景 */
+
+
+/* .MessageBoard_background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../images/bj1.jpg') no-repeat;
+    background-position: center top;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    max-width: 1920px;
+    min-width: 400px;
+    z-index: -1;
+} */
+
+
+/* 留言板 */
+
+#MessageBoard {
+    width: 800px;
+    height: 1800px;
+    background-color: seashell;
+    margin: auto;
+}

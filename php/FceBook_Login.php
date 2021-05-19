@@ -10,6 +10,6 @@ require_once MySQL_ROOT.'mysql_user.php';
 $user = new PDO_MySQL();
 
 //载入html文件
-require_once HTML_ROOT.'FceBook_index.html';
+require_once HTML_ROOT.'FceBook_Login.html';
 
 ?>
