@@ -55,10 +55,14 @@ use \PDO,\PDOException,\PDOStatement;
                 echo '连接数据库错误<br/>';
                 $this->PDO_error($e);
             }
-
             //设定字符集
-                 // exit($charset);
-            $this->pdo->exec("set names {$charset}");
+            try{
+                // exit($charset);
+                $this->pdo->exec("set names {$charset}");
+            }catch(PDOException $e){
+                echo '字符集错误<br/>';
+                $this->PDO_error($e);
+            }
         
         }
         //封装错误报告
@@ -68,9 +72,15 @@ use \PDO,\PDOException,\PDOStatement;
             echo '错误描述'.$e->getMessage().'<br/>';
             die();
         }
+
         //写入操作
         public function dao_exec($sql){
-            return $this->pdo->exec($sql);
+            try{
+                return $this->pdo->exec($sql);
+            }catch(PDOException $e){
+                echo 'SQL错误<br/>';
+                $this->PDO_error($e);
+            }
         }
         //获取写入的自增长ID
         public function dao_insert_id(){
@@ -79,15 +89,24 @@ use \PDO,\PDOException,\PDOStatement;
         
         //读取操作
         public function my_query($sql,$only = true){
-            $stmt = $this->pdo->query($sql);
+            try{
+                $stmt = $this->pdo->query($sql);
                 //设置fetch_mode
                 $stmt->setFetchMode($this->fetch_mode);
                 //默认单例
                 if($only){
                     $row = $stmt->fetch($this->fetch_mode);
+                    if(!$row) throw new PDOException('当前查询数据不存在');
+                    return $row;
                 }else{
                     $rows = $stmt->fetchAll($this->fetch_mode);
+                    if(!$rows) throw new PDOException('当前查询数据不存在');
+                    return $rows;
                 }
+            }catch(PDOException $e){
+                echo 'SQL错误<br/>';
+                $this->PDO_error($e);
+            }
         }
     }
-?>
+    ?>

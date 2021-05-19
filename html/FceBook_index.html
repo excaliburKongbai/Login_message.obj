@@ -24,7 +24,7 @@
                         <input type="password" class="input_user" id="user_pass" name="user_pass" placeholder="  密码" value="">
                     </li>
                     <li class="jump_error">
-                        <h5 id="Jump_Error" style="color: red; ">用户密码错误</h5>
+                        <h5 id="Jump_Error" style="color: red;"></h5>
                     </li>
                     <li class="login_butt_box">
                         <button type="button" id="login" name="login">登录</button>
@@ -39,21 +39,43 @@
 <body>
 
 </body>
-<script src="../js/jquery-3.6.0.js" type="text/javascript" charset="utf-8">
+<script src="../js/jquery-3.6.0.js" type="text/javascript " charset="utf-8 ">
 </script>
 <script type='text/javascript' charset='utf-8'>
     // 绑定登录事件
+    // $("#login").click(function() {
+    //     var user_id = $('#user_id').val();
+    //     var user_pass = $('#user_pass').val();
+    //     console.log(user_id, user_pass);
+    // })
     $("#login").click(function() {
-        var user_id = $('#user_id').val();
-        var user_pass = $('#user_pass').val();
-        console.log(user_id, user_pass);
-        $.getJSON("../php/common/Login.php", {
-            id: user_id,
-            pass: user_pass
-        }, function(data) {
-            alert(data);
+        var name = $("#user_id").val();
+        var pwd = $("#user_pass").val();
+        console.log(name, pwd);
+        $.ajax({
+            url: '../php/common/Login.php',
+            type: 'post',
+            data: {
+                'name': name,
+                'pwd': pwd
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.flag == 1) {　　　　　　　　　　　　
+                    alert(data.msg);
+                    //跳转页面
+                    // location.href = 'index.php';
+                } else {
+                    // alert(data.msg);
+                    $('#Jump_Error').text(data.msg);
+                }
+            },
+            error: function(e) {
+                console.log('请求出错！');
+                console.log(e.responseText);
+            }
         })
-    })
+    });
 </script>
 
 </html>

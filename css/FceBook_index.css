@@ -99,7 +99,7 @@ header .State>h3 {
     height: 5rem;
     background-color: rgb(255, 255, 255);
     border: rgb(167, 167, 167) 1px solid;
-    margin: 2rem;
+    margin: 1.5rem;
     display: inline-block;
     border-radius: 0.5rem;
     transition: all 0.5s linear;
