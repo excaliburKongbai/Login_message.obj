@@ -2,8 +2,7 @@
 
 /* 背景 */
 
-
-/* .MessageBoard_background {
+.MessageBoard_background {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -16,14 +15,115 @@
     max-width: 1920px;
     min-width: 400px;
     z-index: -1;
-} */
+}
+
+
+/* 默认 */
+
+* {
+    overflow: auto;
+}
 
 
 /* 留言板 */
 
 #MessageBoard {
     width: 800px;
-    height: 1800px;
-    background-color: seashell;
+    /* height: 1000px; */
+    background-color: rgb(255, 255, 255);
     margin: auto;
+    margin-top: 40px;
+    border: black 2px solid;
+}
+
+#MessageBoard .top_Details {
+    display: block;
+    width: 700px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#MessageBoard .Separbar {
+    width: 100%;
+    height: 20px;
+    display: block;
+    background-color: #f2f2f2;
+    margin: 10px 0 10px 0;
+}
+
+#MessageBoard_user .top_Column {
+    background-color: #f2f2f2;
+    display: block;
+    width: 700px;
+    height: 30px;
+    margin: auto;
+    border-top: black 1px solid;
+    border-left: black 1px solid;
+    border-right: black 1px solid;
+}
+
+#MessageBoard_user .user_text {
+    width: 700px;
+    height: 100px;
+    border: black 1px solid;
+    border-top: none;
+    display: block;
+    margin: auto;
+    resize: none;
+    /* 禁止拉伸 */
+    font-size: 18px;
+}
+
+#MessageBoard_user .Page_Control {
+    width: 700px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+#MessageBoard_user .Previous_page {
+    float: right;
+    margin-right: 20px;
+}
+
+#MessageBoard_user .Next_page {
+    float: right;
+    margin-right: 20px;
+}
+
+#user_Message ul li {
+    position: relative;
+    display: block;
+    width: 700px;
+    margin: auto;
+}
+
+#user_Message ul li .my_Head {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+#user_Message ul li .my_name {
+    position: absolute;
+    top: 5px;
+    left: 100px;
+}
+
+#user_Message ul li .my_time {
+    position: absolute;
+    right: 30px;
+    top: 5px;
+}
+
+#user_Message ul li .my_text {
+    width: 600px;
+    height: 70px;
+    resize: none;
+    /* 禁止拉伸 */
+    margin: 30px 0 10px 0;
 }
