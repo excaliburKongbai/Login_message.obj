@@ -3,7 +3,7 @@
 
 use core\PDO_MySQL;
 
-require_once '../config/common.php';
+require_once 'D:\loliyaozi\loliyaozi\config\common.php';
 
 //链接数据库
 require_once MySQL_ROOT.'mysql_user.php';  
@@ -13,24 +13,13 @@ $user = new PDO_MySQL();
 $sql = "SELECT * from `my_message`";
 $reds =$user->my_query($sql,false);
 
-//存储数据库数组
-$naws = array(); 
-$name = array();
+// 开启用户会话
+session_start();
 
-for($i=0;$i<count($reds);$i++){
-    $naws[]=$reds[$i];
-    // for($k=0;$k<count($naws);$k++){
-    //     $name[]=$naws[$k];
-    // }
-    var_dump($naws);
-}
 
-echo '<pre>';
-
-// var_dump($reds);
-// echo count($reds);
+// var_dump($_SESSION);
 
 //载入html文件
-// require_once HTML_ROOT.'FceBook.html';
+require_once HTML_ROOT.'FceBook.html';
 
 ?>

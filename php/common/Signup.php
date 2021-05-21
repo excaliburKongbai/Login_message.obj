@@ -24,6 +24,8 @@ if($logid==''||$pass==''){
         $sql = "INSERT INTO `user` (user_id,user_pass)VALUES('$logid','$pass')";
         $user->dao_exec($sql);
         $msg ='注册成功';
+        setcookie("user_id",$logid,time()+60*60,'/');//加"/"不然跨目录找不到
+        setcookie("user_pass",$pass,time()+60*60,'/');
     }
 }
 //打包数据

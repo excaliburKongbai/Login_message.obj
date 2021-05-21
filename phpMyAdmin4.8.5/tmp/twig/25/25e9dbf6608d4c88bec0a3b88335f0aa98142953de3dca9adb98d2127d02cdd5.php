@@ -53,6 +53,6 @@ class __TwigTemplate_46e209d46715a734e6215d3364f14d0a4d5d5324b91e965dac4f3ac0415
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "display/results/value_display.twig", "C:\\Users\\excalibur\\Desktop\\ce\\WWW\\loliyaozi.CN\\phpMyAdmin4.8.5\\templates\\display\\results\\value_display.twig");
+        return new Twig_Source("", "display/results/value_display.twig", "D:\\loliyaozi\\loliyaozi\\phpMyAdmin4.8.5\\templates\\display\\results\\value_display.twig");
     }
 }

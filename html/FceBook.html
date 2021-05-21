@@ -14,11 +14,19 @@
     <section class="MessageBoard_background">
         <div id="MessageBoard">
             <div id="MessageBoard_user">
-                <h3 class="Blue top_Details">留言板&nbsp;&nbsp;|&nbsp;&nbsp;个人中心</h3>
+                <h3 class="Blue top_Details">留言板&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <?php 
+                    if(!isset($_COOKIE['user_id'])){
+                        echo "<a href='../php/FceBook_Login.php'>请登录</a>";
+                    }else{
+                        echo "<a class='Blue aDefault' href='#'>用户中心</a>&nbsp;&nbsp;<a class='Blue' href='./common/user_CookieDel.php'>注销</a>";
+                    }
+                    ?>
+                </h3>
                 <span class="Separbar"></span>
                 <span class="top_Column no_overflow">&nbsp;&nbsp;≧◔◡◔≦</span>
                 <textarea class="user_text" id="user_text" name="user_text"></textarea>
-                <button type="button" style="margin:7px 0 5px 50px;">发表留言</button>
+                <button id="Speech" type="button" style="margin:7px 0 5px 50px;">发表留言</button>
                 <div class="Page_Control no_overflow">
                     <span style="font-size: 20px;">留言(200字)</span>
                     <span style="cursor: pointer;" class="Next_page Blue">下一页</span>
@@ -28,18 +36,51 @@
             <hr>
             <div id="user_Message">
                 <ul>
+                    <?php foreach($reds as $k=>$val){ ?>
                     <li>
                         <img class="my_Head" src="../images/tx.png" alt="头像">
-                        <span class="my_name">昵称</span>
-                        <span class="my_time">2001-01-01</span>
-                        <textarea class="my_text" name="" id=""></textarea>
+                        <span class="my_name"><?php echo $val['my_user'];  ?></span>
+                        <span class="my_time"><?php echo $val['time'];  ?></span>
+                        <textarea class="my_text" disabled="disabled" name="" id=""><?php echo $val['user_Message']; ?></textarea>
                         <hr>
                     </li>
-
+                    <? }?>
                 </ul>
             </div>
         </div>
     </section>
 </body>
+<script src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    // 提交
+    $("#Speech").click(function() {
+        var user_text = $("#user_text").val();
+        var user_id = <?php echo $user_id = isset($_COOKIE['user_id'])?$_COOKIE['user_id']:''; ?>;
+        console.log(user_text, user_id);
+        $.ajax({
+            url: 'AddMessage.php',
+            type: 'post',
+            data: {
+                'user_text': user_text,
+                'user_id': user_id,
+            },
+            dataType: 'JSON',
+            // 成功
+            success: function(data) {
+                if (data.flag == 1) {
+                    alert(data.msg)
+                } else {
+                    alert(data.msg)
+                }
+            },
+            // 失败
+            error: function(e) {
+                console.log('请求出错!');
+                console.log(e.responseText);
+            }
+
+        })
+    })
+</script>
 
 </html>

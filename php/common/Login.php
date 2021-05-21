@@ -29,6 +29,8 @@ if($logid==''||$pass==''){
         if($data['name']==$user_id && $data['pwd']==$user_pass) {
             $flag=1;
             $msg="登录成功";
+            setcookie("user_id",$user_id,time()+60*60,'/');//加"/"不然跨目录找不到
+            setcookie("user_pass",$user_pass,time()+60*60,'/');
         }else{
             $msg="密码或账号错误";
         }
