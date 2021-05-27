@@ -38,3 +38,59 @@ if($_POST){
     //保存用户账号在本地
 }
 ?>
+
+
+
+
+$("#OK_UpdatePass ").click(function() {
+            var Old_pass = $("#Old_pass ").val();
+            var pass1 = $("#new_pass1 ").val();
+            var pass2 = $("#new_pass2 ").val();
+            var id = "<?php echo $id ?>"; 
+            if (Old_pass == '' && pass1 == ''  pass2 == '') {
+                 $("#error").text('不能为空'); 
+                 return false; 
+                }
+            if (pass1 == pass2) {
+                 $("#error").text(''); 
+                }
+            $.ajax({
+                    url: "Update_pass.php",
+                    type: 'post',
+                    data:{
+                        'id': id,
+                        'Old_pass': Old_pass,
+                        'new_pass': pass2, 
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.flag == 1) {
+                             alert('修改成功');
+                              location.href = 'common/user_CookieDel.php';
+                            } else { 
+                                $("#error").text(data.msg);
+                                }
+                           }, 
+                           error:function (e) {
+                               console.log('请求出错!');
+                               console.log(e.responseText); 
+                           }
+                            })})
+                                // error: function(e) {
+                                //      console.log('请求出错!');
+                                //     console.log(e.responseText); 
+                                //     } }) } else { 
+                                //         $("#error").text('密码不一致');
+                                //      } }) 
+                                //显示自己的留言板
+                                 $("#GO_userTtex_box").click(function() { 
+                                     $("#userDetalis").css('display', 'none');
+                                      $("#userText").css('display','block');}) //返回个人信息 
+                                //修改页面 
+                                //点击按钮显示
+                                 $(".my_select").click(function() { 
+                                     if ($(".my_option").css("display") == "block") { 
+                                         $(".my_option").css("display", "none"); 
+                                        } else { 
+                                            $(".my_option").css("display", "block"); } }) 
+                                            // 修改

@@ -13,73 +13,113 @@
 <body>
     <section class="MessageBoard_background">
         <div id="MessageBoard">
+            <!-- 留言板发言区 -->
             <div id="MessageBoard_user">
                 <h3 class="Blue top_Details">留言板&nbsp;&nbsp;|&nbsp;&nbsp;
                     <?php 
                     if(!isset($_COOKIE['user_id'])){
-                        echo "<a href='../php/FceBook_Login.php'>请登录</a>";
+                        echo "<a class='Blue' href='../php/FceBook_Login.php'>请登录</a>";
                     }else{
-                        echo "<a class='Blue aDefault' href='#'>用户中心</a>&nbsp;&nbsp;<a class='Blue' href='./common/user_CookieDel.php'>注销</a>";
+                        echo "<a class='Blue aDefault' href='user_Details.php?id=".$id."'>用户中心</a>&nbsp;&nbsp;<a class='Blue' href='./common/user_CookieDel.php'>注销</a>";
                     }
                     ?>
+                    <span class="Blue" style="margin-left: 100px;">用户:
+                        <?php
+                        if(!isset($_COOKIE['user_id'])){
+                            echo "游客";
+                        }else{
+                            echo $_COOKIE['user_id'];
+                        }
+                        ?>
+                    </span>
                 </h3>
                 <span class="Separbar"></span>
                 <span class="top_Column no_overflow">&nbsp;&nbsp;≧◔◡◔≦</span>
-                <textarea class="user_text" id="user_text" name="user_text"></textarea>
+                <textarea class="user_text" id="user_text" name="user_text" placeholder=" 请输入留言"></textarea>
                 <button id="Speech" type="button" style="margin:7px 0 5px 50px;">发表留言</button>
                 <div class="Page_Control no_overflow">
                     <span style="font-size: 20px;">留言(200字)</span>
-                    <span style="cursor: pointer;" class="Next_page Blue">下一页</span>
-                    <span style="cursor: pointer;" class="Previous_page Blue">上一页</span>
+                    <a href="?Page=<?php echo $Page+1 ?>" style="cursor: pointer;" class="Next_page Blue">下一页</a>
+                    <a href="?Page=<?php echo $Page-1 ?>" style="cursor: pointer;" class="Previous_page Blue">上一页</a>
                 </div>
             </div>
             <hr>
+            <!-- 留言板展示区 -->
             <div id="user_Message">
                 <ul>
-                    <?php foreach($reds as $k=>$val){ ?>
+                    <?php foreach($reds as $k=>$val): ?>
                     <li>
                         <img class="my_Head" src="../images/tx.png" alt="头像">
                         <span class="my_name"><?php echo $val['my_user'];  ?></span>
                         <span class="my_time"><?php echo $val['time'];  ?></span>
+                        <!-- 判断用户是否和当前的登录的一致,是显示按钮,否隐藏 -->
+                        <?php 
+                            $u = isset($_COOKIE["user_id"])?$_COOKIE["user_id"]:'';
+                            $v = isset($val["my_user"])?$val["my_user"]:'';
+                            $a= $u == $v?"ture":"none"; 
+                        ?>
+                        <details class="my_select" style="display:<?php echo $a?>;">
+                            <summary style=" list-style: none;">· · ·</summary>
+                            <li>
+                                <a href="Update_text.php?id=<?php echo $val['id'] ?>">修改</a>
+                            </li>
+                            <li>
+                                <a href="Del_userText.php?id=<?php echo $val['id'] ?>" style="color: brown;" onclick="return confirm( '是否确定删除?') ">删除</a>
+                            </li>
+                        </details>
                         <textarea class="my_text" disabled="disabled" name="" id=""><?php echo $val['user_Message']; ?></textarea>
                         <hr>
                     </li>
-                    <? }?>
+                    <? endforeach ;?>
                 </ul>
+                <div id="Total_Pages">
+                    <a href="?Page=1">首页</a>
+                    <?php
+                    for($i=0;$i<$Total_Pages;$i++){
+                        $key=$i+1;
+                        echo "<a href='?Page=$key'>$key</a>";
+                     } 
+                    ?>
+                        <a href="?Page=<?php echo $Total_Pages ;?>">尾页</a>
+                </div>
             </div>
         </div>
     </section>
 </body>
 <script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-    // 提交
-    $("#Speech").click(function() {
-        var user_text = $("#user_text").val();
-        var user_id = <?php echo $user_id = isset($_COOKIE['user_id'])?$_COOKIE['user_id']:''; ?>;
-        console.log(user_text, user_id);
-        $.ajax({
-            url: 'AddMessage.php',
-            type: 'post',
-            data: {
-                'user_text': user_text,
-                'user_id': user_id,
-            },
-            dataType: 'JSON',
-            // 成功
-            success: function(data) {
-                if (data.flag == 1) {
-                    alert(data.msg)
-                } else {
-                    alert(data.msg)
+    // 留言提交
+    $("#Speech").one({
+        'click': function() {
+            var user_text = $("#user_text").val();
+            var user_id = "<?php echo $user_id = isset($_COOKIE['user_id'])?$_COOKIE['user_id']:''; ?>";
+            console.log(user_text, user_id);
+            $.ajax({
+                url: 'AddMessage.php',
+                type: 'post',
+                data: {
+                    'user_text': user_text,
+                    'user_id': user_id,
+                },
+                dataType: 'JSON',
+                // 成功
+                success: function(data) {
+                    if (data.flag == 1) {
+                        alert(data.msg)
+                        location.href = '../index.php';
+                    } else {
+                        alert(data.msg)
+                        location.href = '../index.php';
+                    }
+                },
+                // 失败
+                error: function(e) {
+                    console.log('请求出错!');
+                    console.log(e.responseText);
                 }
-            },
-            // 失败
-            error: function(e) {
-                console.log('请求出错!');
-                console.log(e.responseText);
-            }
 
-        })
+            })
+        }
     })
 </script>
 

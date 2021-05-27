@@ -68,6 +68,11 @@ use \PDO,\PDOException,\PDOStatement;
             echo '错误描述'.$e->getMessage().'<br/>';
             die();
         }
+        // 执行sql语句操作
+        public function dao_query($sql){
+            return $this->pdo->query($sql);
+        }
+
         //写入操作
         public function dao_exec($sql){
             return $this->pdo->exec($sql);

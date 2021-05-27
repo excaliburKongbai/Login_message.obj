@@ -44,10 +44,17 @@
                         <input type="text" class="input_user bott2" id="Signup_id" name="Signup_id" placeholder="  昵称" value="">
                     </li>
                     <li>
-                        <input type="password" class="input_user" id="Signup_pass" name="Signup_pass" placeholder=" 密码(8-16位数)" value="">
+                        <input type="password" class="input_user  bott2" id="Signup_pass" name="Signup_pass" placeholder=" 密码(8-16位数)" value="">
+                    </li>
+                    <li>
+                        <input type="password" class="input_user" id="Signup_pass_affirm" name="Signup_pass" placeholder=" 确认密码" value="">
                     </li>
                     <li class="jump_error">
                         <h5 id="Signup_Error" style="color: red;"></h5>
+                    </li>
+                    <li>
+                        <img id="captcha_word" style="vertical-align: middle; margin-right: 10px; " src="common/captcha.php" onclick="this.src='../php/common/captcha.php?'+new Date().getTime();" width="100" height="37">
+                        <input type="text" style="width: 120px; height: 30px; vertical-align: middle;" id="captcha" placeholder=" 验证码">
                     </li>
                     <li class="login_butt_box2">
                         <button type="button" id="Signup_but" name="Registered">注册</button>
@@ -68,7 +75,6 @@
     $("#login").click(function() {
         var name = $("#user_id").val();
         var pwd = $("#user_pass").val();
-        // console.log(name, pwd);
         $.ajax({
             url: '../php/common/Login.php',
             type: 'post',
@@ -99,37 +105,58 @@
         })
         //返回登录
     $("#on_Signup").click(function() {
-        $(".Login").css('display', 'block');
-        $(".Signup").css('display', 'none');
-    })
+            $(".Login").css('display', 'block');
+            $(".Signup").css('display', 'none');
+        })
+        //点击注册
     $("#Signup_but").click(function() {
         var name = $("#Signup_id").val();
         var pwd = $("#Signup_pass").val();
-        console.log(name, pwd);
-        $.ajax({
-            url: '../php/common/Signup.php',
-            type: 'post',
-            data: {
-                'name': name,
-                'pwd': pwd,
-            },
-            dataType: 'json',
-            // 成功
-            success: function(data) {
-                if (data.flag == 1) {　　　　　　　　　　　　
-                    alert(data.msg);
-                    //跳转页面
-                    location.href = '../php/FceBook.php';
-                } else {
-                    $('#Signup_Error').text(data.msg);
+        var pwd_affirm = $("#Signup_pass_affirm").val();
+        var captcha = $("#captcha").val();
+        // 判断两次密码是否一致
+        if (pwd !== pwd_affirm) {
+            $('#Signup_Error').text("确认密码与原密码不一致");
+            return false
+        }
+        // 判断验证码
+        if (captcha == '') {
+            $('#Signup_Error').text('验证码不能为空');
+            return false;
+        } else if (pwd.length < 8 || pwd.length > 16) {
+            alert("密码8-16位数");
+        } else if (name.length > 16) {
+            alert("账号不能大于16位数");
+        } else {
+            $('#Signup_but').attr('disabled', true);
+            $('#Signup_Error').text("");
+            $.ajax({
+                url: '../php/common/Signup.php',
+                type: 'post',
+                data: {
+                    'name': name,
+                    'pwd': pwd,
+                    'captcha': captcha,
+                },
+                dataType: 'json',
+                // 成功
+                success: function(data) {
+                    if (data.flag == 1) {　　　　　　　　　　　　
+                        alert(data.msg);
+                        //跳转页面
+                        location.href = '../php/FceBook.php';
+                    } else {
+                        $('#Signup_but').attr('disabled', false);
+                        $('#Signup_Error').text(data.msg);
+                    }
+                },
+                // 失败
+                error: function(e) {
+                    console.log('请求出错!');
+                    console.log(e.responseText);
                 }
-            },
-            // 失败
-            error: function(e) {
-                console.log('请求出错!');
-                console.log(e.responseText);
-            }
-        })
+            })
+        }
     })
 </script>
 

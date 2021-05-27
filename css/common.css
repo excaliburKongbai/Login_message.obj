@@ -35,6 +35,13 @@ a {
 }
 
 
+/* 下拉详细情况去三角 */
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+
 /*清除浮动塌陷*/
 
 .clearfix_D::before,

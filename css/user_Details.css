@@ -1,0 +1,158 @@
+#box_background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../images/bj1.jpg') no-repeat;
+    background-position: center top;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    max-width: 1920px;
+    min-width: 400px;
+    z-index: -1;
+}
+
+#user_Details_box {
+    width: 800px;
+    min-height: 600px;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 40px;
+    border: black 2px solid;
+    margin-bottom: 100px;
+}
+
+#user_Derails,
+#Update_pass_butt,
+#Select_user_text_butt {
+    width: 780px;
+    /* height: 100px; */
+    margin: auto;
+    border-bottom: black 1px solid;
+    position: relative;
+}
+
+#user_Derails>img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+#user_Derails>h4 {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+}
+
+
+/* 修改密码 */
+
+#UpdatePass {
+    width: 780PX;
+    height: 600PX;
+    margin: auto;
+    position: relative;
+}
+
+#UpdatePass ul {
+    margin-top: 100px;
+}
+
+#UpdatePass ul>li {
+    width: 500px;
+    height: 60px;
+    margin: auto;
+    display: block;
+}
+
+#UpdatePass ul>li .left {
+    width: 250px;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 100px;
+}
+
+#UpdatePass ul li>h4 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#UpdatePass ul>li input {
+    width: 200px;
+    height: 30px;
+}
+
+#UpdatePass ul>li button {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+
+/* 个人留言板 */
+
+#userText ul li {
+    position: relative;
+    display: block;
+    width: 700px;
+    margin: auto;
+}
+
+#userText ul li .my_Head {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+#userText ul li .my_name {
+    position: absolute;
+    top: 5px;
+    left: 100px;
+}
+
+#userText ul li .my_select {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    width: 40px;
+    text-align: center;
+    background-color: rgb(189, 189, 189);
+    cursor: pointer;
+    border-radius: 15%;
+}
+
+#userText ul li .my_select>li {
+    width: 40px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    background-color: rgb(189, 189, 189);
+    cursor: pointer;
+}
+
+#userText ul li .my_select:hover,
+#userText ul li .my_select>li:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+
+/* ············ */
+
+#userText ul li .my_time {
+    position: absolute;
+    right: 60px;
+    top: 5px;
+}
+
+#userText ul li .my_text {
+    width: 600px;
+    height: 70px;
+    resize: none;
+    /* 禁止拉伸 */
+    margin: 30px 0 10px 0;
+}

@@ -4,5 +4,6 @@
 error_reporting(0);
 setcookie("user_id",$user_id,time()-60*60,'/');//加"/"不然跨目录找不到
 setcookie("user_pass",$user_pass,time()-60*60,'/');
+setcookie("id",$id,time()-60*60,'/');
 header("Refresh:0;../../../index.php");
 ?>

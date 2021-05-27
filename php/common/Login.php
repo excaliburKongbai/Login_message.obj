@@ -13,6 +13,8 @@ $data=$_POST;
 $flag=0;
 $logid=isset($_POST['name'])?trim($_POST['name']):'';  //user账户
 $pass=isset($_POST['pwd'])?trim($_POST['pwd']):''; //user密码
+
+
 if($logid==''||$pass==''){
     $msg = "用户名或密码不能为空";
 }else{
@@ -23,6 +25,7 @@ if($logid==''||$pass==''){
         //判断用户是否存在
         $msg = "用户名不存在";
     }else{
+        $id=$red["id"];
         $user_id=$red["user_id"];
         $user_pass=$red["user_pass"];
         //判断登录
@@ -31,6 +34,7 @@ if($logid==''||$pass==''){
             $msg="登录成功";
             setcookie("user_id",$user_id,time()+60*60,'/');//加"/"不然跨目录找不到
             setcookie("user_pass",$user_pass,time()+60*60,'/');
+            setcookie("id",$id,time()+60*60,'/');
         }else{
             $msg="密码或账号错误";
         }
