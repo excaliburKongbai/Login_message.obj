@@ -24,8 +24,9 @@ if($logid==''||$pass==''){
     $msg = '验证码错误';
 }else{
     $sql = "SELECT*FROM `user` WHERE user_id ='$logid'";
-    $red = $user->my_query($sql);
-    if($red['user_id']==$logid){
+    $reds = $user->my_query($sql);
+    $red = isset($reds['user_id'])??'';
+    if($red==$logid){
         //判断用户是否存在
         $msg = "用户已存在";
     }else{

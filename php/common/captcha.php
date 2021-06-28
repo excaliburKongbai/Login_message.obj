@@ -4,7 +4,7 @@ header('Content-type:image/jpeg',);                 //声明浏览器输出格�
 $width=120;                                         //声明宽
 $height=40;                                         //声明高
 //声明字体 php7 以上需要绝对路径而且不能有中文
-$font='D:\phpstudy_pro\WWW\www.loliyaozi.xyz\css\font\abc.ttf';
+$font='C:\WINDOWS\FONTS\SIMKAI.TTF';
 
 //声明数组字符串
 $arr=array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
