@@ -21,7 +21,7 @@ if($logid==''||$pass==''){
     //导出数据库的账号密码
     $sql="SELECT*FROM `user` WHERE user_id ='$logid'";
     $reds = $user->my_query($sql);
-    $red = $reds['user_id'];
+    $red = isset($reds['user_id'])??'';
     if($red ==''){
         //判断用户是否存在
         $msg = "用户名不存在";
