@@ -20,14 +20,15 @@ if($logid==''||$pass==''){
 }else{
     //导出数据库的账号密码
     $sql="SELECT*FROM `user` WHERE user_id ='$logid'";
-    $red = $user->my_query($sql);
-    if($red['user_id']==''){
+    $reds = $user->my_query($sql);
+    $red = $reds['user_id'];
+    if($red ==''){
         //判断用户是否存在
         $msg = "用户名不存在";
     }else{
-        $id=$red["id"];
-        $user_id=$red["user_id"];
-        $user_pass=$red["user_pass"];
+        $id=$reds["id"];
+        $user_id=$reds["user_id"];
+        $user_pass=$reds["user_pass"];
         //判断登录
         if($data['name']==$user_id && $data['pwd']==$user_pass) {
             $flag=1;
