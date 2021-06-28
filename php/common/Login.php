@@ -37,7 +37,7 @@ if($logid==''||$pass==''){
             setcookie("user_pass",$user_pass,time()+60*60,'/');
             setcookie("id",$id,time()+60*60,'/');
         }else{
-            $msg="密码或账号错误";
+            $msg="密码错误";
         }
     }
 }
